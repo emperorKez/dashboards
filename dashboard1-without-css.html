@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Hailing Admin Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="static/admin/dashboard.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                RideAdmin
+            </div>
+            
+            <div class="nav-item active">
+                <i class="fas fa-tachometer-alt"></i>
+                Dashboard
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-calendar-check"></i>
+                Bookings
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-clock"></i>
+                Schedule
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-car-side"></i>
+                Car Management
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-users"></i>
+                User Management
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-user-tie"></i>
+                Drivers
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-route"></i>
+                Trips
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-chart-bar"></i>
+                Reports
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-cog"></i>
+                Settings
+            </div>
+            <div class="nav-item">
+                <i class="fas fa-headset"></i>
+                Help & Support
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <div>
+                    <h1>Dashboard Overview</h1>
+                    <p>Welcome back! Here's what's happening with your ride-hailing service today.</p>
+                </div>
+                <div class="date-filter">
+                    <input type="date" class="date-input" value="2025-06-20">
+                    <select class="date-input">
+                        <option>This Week</option>
+                        <option>This Month</option>
+                        <option>Last 30 Days</option>
+                        <option>Custom Range</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="stats-grid">
+                <div class="stat-card revenue-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value">$50,101</div>
+                            <div class="stat-label">Total Revenue</div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        12% increase from last month
+                    </div>
+                </div>
+
+                <div class="stat-card rides-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value">4,958</div>
+                            <div class="stat-label">Total Trips</div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        3.5% vs last month
+                    </div>
+                </div>
+
+                <div class="stat-card drivers-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value">5,480</div>
+                            <div class="stat-label">Total Drivers</div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                    </div>
+                    <div class="stat-change negative">
+                        <i class="fas fa-arrow-down"></i>
+                        3.5% vs last month
+                    </div>
+                </div>
+
+                <div class="stat-card users-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value">25,480</div>
+                            <div class="stat-label">Total Riders</div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        3.5% vs last month
+                    </div>
+                </div>
+
+                <div class="stat-card bookings-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value">500</div>
+                            <div class="stat-label">Upcoming Bookings</div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        59% vs last month
+                    </div>
+                </div>
+
+                <div class="stat-card cancelled-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value">20</div>
+                            <div class="stat-label">Cancelled Rides</div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-down"></i>
+                        6% decrease from last month
+                    </div>
+                </div>
+
+                <div class="stat-card profit-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value">$48,574</div>
+                            <div class="stat-label">Net Profit</div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        15% vs last month
+                    </div>
+                </div>
+
+                <div class="stat-card vehicles-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-value">2,349</div>
+                            <div class="stat-label">Active Vehicles</div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        8% vs last month
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <div class="chart-card">
+                    <div class="chart-title">Revenue & Ride Trends</div>
+                    <canvas id="revenueChart" height="80"></canvas>
+                </div>
+                
+                <div class="chart-card">
+                    <div class="chart-title">Ride Request Pattern</div>
+                    <canvas id="ridePatternChart" height="160"></canvas>
+                </div>
+            </div>
+
+            <!-- Live Location & Active Rides -->
+            <div class="location-section">
+                <div class="chart-title">Live Vehicle Tracking & Active Rides</div>
+                <div class="map-placeholder">
+                    <div style="text-align: center;">
+                        <i class="fas fa-map-marked-alt" style="font-size: 48px; margin-bottom: 10px;"></i>
+                        <div>Real-time Vehicle Locations</div>
+                        <small>47 vehicles currently active</small>
+                    </div>
+                </div>
+                
+                <div class="active-rides">
+                    <div class="ride-card">
+                        <div class="ride-header">
+                            <span class="ride-id">AS678686</span>
+                            <span class="status ongoing">Ongoing</span>
+                        </div>
+                        <div class="ride-details">
+                            <div><strong>Driver:</strong> Pawan Kheda</div>
+                            <div><strong>Route:</strong> Noida via National Highway</div>
+                            <div><strong>Distance:</strong> 19.5 km</div>
+                            <div><strong>Fare:</strong> ₹780</div>
+                        </div>
+                    </div>
+                    
+                    <div class="ride-card">
+                        <div class="ride-header">
+                            <span class="ride-id">AS678687</span>
+                            <span class="status completed">Completed</span>
+                        </div>
+                        <div class="ride-details">
+                            <div><strong>Driver:</strong> Vipin Kumar</div>
+                            <div><strong>Route:</strong> Liberty Island to City Center</div>
+                            <div><strong>Distance:</strong> 15.2 km</div>
+                            <div><strong>Fare:</strong> ₹650</div>
+                        </div>
+                    </div>
+                    
+                    <div class="ride-card">
+                        <div class="ride-header">
+                            <span class="ride-id">AS678688</span>
+                            <span class="status cancelled">Cancelled</span>
+                        </div>
+                        <div class="ride-details">
+                            <div><strong>Driver:</strong> Raj Kumar</div>
+                            <div><strong>Route:</strong> Airport to Downtown</div>
+                            <div><strong>Distance:</strong> 12.8 km</div>
+                            <div><strong>Reason:</strong> Driver unavailable</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tables Section -->
+            <div class="tables-section">
+                <div class="table-card">
+                    <div class="chart-title">Recent Bookings</div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Driver</th>
+                                <th>Location</th>
+                                <th>Fare</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>6465</td>
+                                <td>
+                                    <div class="driver-info">
+                                        <div class="driver-avatar">A</div>
+                                        Alex
+                                    </div>
+                                </td>
+                                <td>Mumbai</td>
+                                <td>$580</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>1065</td>
+                                <td>
+                                    <div class="driver-info">
+                                        <div class="driver-avatar">R</div>
+                                        Raj
+                                    </div>
+                                </td>
+                                <td>Delhi</td>
+                                <td>$60</td>
+                                <td><span class="status ongoing">Ongoing</span></td>
+                            </tr>
+                            <tr>
+                                <td>0015</td>
+                                <td>
+                                    <div class="driver-info">
+                                        <div class="driver-avatar">R</div>
+                                        Riya
+                                    </div>
+                                </td>
+                                <td>Mumbai</td>
+                                <td>$120</td>
+                                <td><span class="status cancelled">Cancelled</span></td>
+                            </tr>
+                            <tr>
+                                <td>3205</td>
+                                <td>
+                                    <div class="driver-info">
+                                        <div class="driver-avatar">R</div>
+                                        Roan
+                                    </div>
+                                </td>
+                                <td>Ahmedabad</td>
+                                <td>$90</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-card">
+                    <div class="chart-title">Driver Performance</div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Driver</th>
+                                <th>Utilization</th>
+                                <th>Trips</th>
+                                <th>Rating</th>
+                                <th>Earnings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="driver-info">
+                                        <div class="driver-avatar">E</div>
+                                        Emma Stone
+                                    </div>
+                                </td>
+                                <td>65%</td>
+                                <td>24</td>
+                                <td>4.8</td>
+                                <td>$1,240</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="driver-info">
+                                        <div class="driver-avatar">J</div>
+                                        John Doe
+                                    </div>
+                                </td>
+                                <td>65%</td>
+                                <td>22</td>
+                                <td>4.6</td>
+                                <td>$1,180</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="driver-info">
+                                        <div class="driver-avatar">C</div>
+                                        Charles Karev
+                                    </div>
+                                </td>
+                                <td>65%</td>
+                                <td>28</td>
+                                <td>4.9</td>
+                                <td>$1,350</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="driver-info">
+                                        <div class="driver-avatar">H</div>
+                                        Henry Sebastian
+                                    </div>
+                                </td>
+                                <td>65%</td>
+                                <td>19</td>
+                                <td>4.7</td>
+                                <td>$980</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'],
+                datasets: [{
+                    label: 'Revenue ($)',
+                    data: [15000, 25000, 20000, 35000, 25000, 30000, 35000, 40000, 50000, 45000, 48574],
+                    borderColor: '#4f46e5',
+                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }, {
+                    label: 'Rides',
+                    data: [800, 1200, 900, 1600, 1100, 1400, 1500, 1800, 2200, 1900, 2000],
+                    borderColor: '#06b6d4',
+                    backgroundColor: 'rgba(6, 182, 212, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        grid: {
+                            drawOnChartArea: false,
+                        },
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                }
+            }
+        });
+
+        // Ride Pattern Chart
+        const patternCtx = document.getElementById('ridePatternChart').getContext('2d');
+        new Chart(patternCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Peak Hours', 'Regular Hours', 'Off-Peak Hours'],
+                datasets: [{
+                    data: [35, 45, 20],
+                    backgroundColor: [
+                        '#4f46e5',
+                        '#06b6d4',
+                        '#f59e0b'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Add some interactivity
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Auto-refresh data simulation
+        setInterval(() => {
+            // Simulate real-time updates
+            const ongoingRides = document.querySelector('.rides-card .stat-value');
+            const currentValue = parseInt(ongoingRides.textContent.replace(',', ''));
+            ongoingRides.textContent = (currentValue + Math.floor(Math.random() * 5) - 2).toLocaleString();
+        }, 30000);
+    </script>
+</body>
+</html>
